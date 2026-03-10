@@ -1,0 +1,5 @@
+sudo docker run -d --name mysqlronald -e MYSQL_ROOT_PASSWORD=@ITB2026 -p 3307:3306 mysql
+
+sudo docker run -d  --name ronaldphp -e PMA_HOST=host.docker.internal -e PMA_PORT=3306 -p 8081:80 phpmyadmin
+
+sudo docker run -d --name ronaldphpmysql --link mysqlronald:db -e PMA_HOST=db -e PMA_PORT=3306 -p 8082:80 phpmyadmin
