@@ -1,0 +1,1 @@
+drop DATABASE IF EXISTS tech_summit;

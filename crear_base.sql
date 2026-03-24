@@ -8,11 +8,14 @@ CREATE DATABASE tech_summit;
 USE tech_summit;
 
 -- 1. Taula de ponents (estat inicial abans de les reformes)
-CREATE TABLE dades_ponent (
+CREATE TABLE ponent (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(50),
-    cognom VARCHAR(100),
-    empresa VARCHAR(100)
+    nom VARCHAR(50) NOT NULL,
+    cognom1 VARCHAR(50),
+    cognom2 VARCHAR(50),
+    email VARCHAR(100) NOT NULL,
+    empresa VARCHAR(100),
+    vip BOOLEAN DEFAULT FALSE
 );
 
 -- 2. Taula de sessions o xerrades
@@ -26,10 +29,10 @@ CREATE TABLE sessio (
 -- 3. Inserció de dades inicials amb IDs manuals 
 -- (Metodologia: Forçar la consciència de les claus primàries)
 
-INSERT INTO dades_ponent (id, nom, cognom, empresa) VALUES 
-(1, 'anna', 'garcia', 'tech corp'),
-(2, 'marc', 'rovira', 'data solutions'),
-(3, 'laia', 'vidal', 'innovate asix');
+INSERT INTO ponent (id, nom, cognom1, cognom2, email, empresa, vip) VALUES 
+(1, 'anna', 'garcia', NULL, 'anna.garcia@tech corp.com', 'tech corp', FALSE),
+(2, 'marc', 'rovira', NULL, 'marc.rovira@data solutions.com', 'data solutions', FALSE),
+(3, 'laia', 'vidal', NULL, 'laia.vidal@innovate asix.com', 'innovate asix', FALSE);
 
 INSERT INTO sessio (id, titol, sala, hora) VALUES 
 (1, 'ia generativa en el núvol', 'sala a', '10:00:00'),
